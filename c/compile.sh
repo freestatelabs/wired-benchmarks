@@ -1,0 +1,1 @@
+gcc-13 -O3 -fopenmp benchmark.c wired.c -o benchmark.exe
