@@ -14,10 +14,24 @@
 
 int main(int argc, char* argv[]) {
 
-    int Nn = atoi(argv[1]);     
-    int Ns = atoi(argv[2]);
-    int Ni = atoi(argv[3]);
-    int Nt = atoi(argv[4]);
+    int Nn;
+    int Ns;
+    int Ni;
+    int Nt;
+
+    if (argc > 1)
+    {
+        Nn = atoi(argv[1]);     
+        Ns = atoi(argv[2]);
+        Ni = atoi(argv[3]);
+        Nt = atoi(argv[4]);
+
+    }
+    else
+    {
+        printf("Error. Please specify the problem as `benchmark.exe Nn Ns Ni Nt`\n");
+    }
+
 
     double tstart, tend, duration;
 

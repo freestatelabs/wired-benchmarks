@@ -1,0 +1,1 @@
+int benchmark(int Nn, int Ns, int Ni, int Nt, bool verbose=false);

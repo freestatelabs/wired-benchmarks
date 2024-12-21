@@ -1,0 +1,452 @@
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+DebugLoc:        { File: wired.c, Line: 15, Column: 20 }
+Function:        zeros
+Args:
+  - String:          'loop not vectorized: '
+  - String:          Call instruction cannot be vectorized because the called function calloc is a non-intrinsic function.
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeInstruction
+DebugLoc:        { File: wired.c, Line: 14, Column: 5 }
+Function:        zeros
+Args:
+  - String:          'loop not vectorized: '
+  - String:          ''''
+  - String:          call
+  - String:          ''' instruction may read from memory. Only load instruction is supported.'
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+DebugLoc:        { File: wired.c, Line: 14, Column: 5 }
+Function:        zeros
+Args:
+  - String:          loop not vectorized
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 28, Column: 5 }
+Function:        createnodes
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '4'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+DebugLoc:        { File: wired.c, Line: 42, Column: 9 }
+Function:        free2darray
+Args:
+  - String:          'loop not vectorized: '
+  - String:          Call instruction cannot be vectorized because the called function free is a non-intrinsic function.
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeInstruction
+DebugLoc:        { File: wired.c, Line: 41, Column: 5 }
+Function:        free2darray
+Args:
+  - String:          'loop not vectorized: '
+  - String:          ''''
+  - String:          call
+  - String:          ''' instruction may read from memory. Only load instruction is supported.'
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+DebugLoc:        { File: wired.c, Line: 41, Column: 5 }
+Function:        free2darray
+Args:
+  - String:          loop not vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+DebugLoc:        { File: wired.c, Line: 51, Column: 5 }
+Function:        normcols
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 51, Column: 5 }
+Function:        normcols
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+DebugLoc:        { File: wired.c, Line: 60, Column: 5 }
+Function:        crosscols
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 60, Column: 5 }
+Function:        crosscols
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+DebugLoc:        { File: wired.c, Line: 15, Column: 20 }
+Function:        createsources
+Args:
+  - String:          'loop not vectorized: '
+  - String:          Call instruction cannot be vectorized because the called function calloc is a non-intrinsic function.
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeInstruction
+DebugLoc:        { File: wired.c, Line: 14, Column: 5 }
+Function:        createsources
+Args:
+  - String:          'loop not vectorized: '
+  - String:          ''''
+  - String:          call
+  - String:          ''' instruction may read from memory. Only load instruction is supported.'
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+DebugLoc:        { File: wired.c, Line: 14, Column: 5 }
+Function:        createsources
+Args:
+  - String:          loop not vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+DebugLoc:        { File: wired.c, Line: 82, Column: 23 }
+Function:        createsources
+Args:
+  - String:          'loop not vectorized: '
+  - String:          Call instruction cannot be vectorized because the called function llvm.memset.p0.i64 is a non-intrinsic function.
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeInstruction
+DebugLoc:        { File: wired.c, Line: 80, Column: 5 }
+Function:        createsources
+Args:
+  - String:          'loop not vectorized: '
+  - String:          ''''
+  - String:          call
+  - String:          ''' instruction may write to memory. Only store instruction is supported.'
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+DebugLoc:        { File: wired.c, Line: 80, Column: 5 }
+Function:        createsources
+Args:
+  - String:          loop not vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+DebugLoc:        { File: wired.c, Line: 148, Column: 9 }
+Function:        solve2
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 148, Column: 9 }
+Function:        solve2
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+DebugLoc:        { File: wired.c, Line: 144, Column: 9 }
+Function:        solve2
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 144, Column: 9 }
+Function:        solve2
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+DebugLoc:        { File: wired.c, Line: 140, Column: 9 }
+Function:        solve2
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 140, Column: 9 }
+Function:        solve2
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+DebugLoc:        { File: wired.c, Line: 136, Column: 9 }
+Function:        solve2
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 136, Column: 9 }
+Function:        solve2
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+DebugLoc:        { File: wired.c, Line: 51, Column: 5 }
+Function:        solve2
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 51, Column: 5 }
+Function:        solve2
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+DebugLoc:        { File: wired.c, Line: 51, Column: 5 }
+Function:        solve2
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 51, Column: 5 }
+Function:        solve2
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+DebugLoc:        { File: wired.c, Line: 51, Column: 5 }
+Function:        solve2
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 51, Column: 5 }
+Function:        solve2
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+DebugLoc:        { File: wired.c, Line: 60, Column: 5 }
+Function:        solve2
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 60, Column: 5 }
+Function:        solve2
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+DebugLoc:        { File: wired.c, Line: 121, Column: 9 }
+Function:        solve2
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 121, Column: 9 }
+Function:        solve2
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+DebugLoc:        { File: wired.c, Line: 211, Column: 9 }
+Function:        solve3.omp_outlined.1
+Args:
+  - String:          'loop not vectorized: '
+  - String:          Call instruction cannot be vectorized because the called function __kmpc_dispatch_fini_4 is a non-intrinsic function.
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            RHSNotInvariant
+DebugLoc:        { File: wired.c, Line: 211, Column: 9 }
+Function:        solve3.omp_outlined.1
+Args:
+  - String:          'loop not vectorized: '
+  - String:          'It is not possible to determine the number of loop iterations '
+  - String:          because the RHS of the condition in the loop is not loop invariant.
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+DebugLoc:        { File: wired.c, Line: 211, Column: 9 }
+Function:        solve3.omp_outlined.1
+Args:
+  - String:          loop not vectorized
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 239, Column: 21 }
+Function:        solve3.omp_outlined.1
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '4'
+  - String:          ')'
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 239, Column: 21 }
+Function:        solve3.omp_outlined.1
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '4'
+  - String:          ')'
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: wired.c, Line: 239, Column: 21 }
+Function:        solve3.omp_outlined.1
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '8'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '4'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantIdentifyArrayBounds
+DebugLoc:        { File: wired.c, Line: 225, Column: 13 }
+Function:        solve3.omp_outlined.1
+Args:
+  - String:          'loop not vectorized: '
+  - String:          Array bounds cannot be determined because the loop uses arrays where the array element is of aggregate type.
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+DebugLoc:        { File: wired.c, Line: 225, Column: 13 }
+Function:        solve3.omp_outlined.1
+Args:
+  - String:          loop not vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+DebugLoc:        { File: wired.c, Line: 15, Column: 20 }
+Function:        solve3.omp_outlined.1
+Args:
+  - String:          'loop not vectorized: '
+  - String:          Call instruction cannot be vectorized because the called function calloc is a non-intrinsic function.
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeInstruction
+DebugLoc:        { File: wired.c, Line: 14, Column: 5 }
+Function:        solve3.omp_outlined.1
+Args:
+  - String:          'loop not vectorized: '
+  - String:          ''''
+  - String:          call
+  - String:          ''' instruction may read from memory. Only load instruction is supported.'
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+DebugLoc:        { File: wired.c, Line: 14, Column: 5 }
+Function:        solve3.omp_outlined.1
+Args:
+  - String:          loop not vectorized
+...

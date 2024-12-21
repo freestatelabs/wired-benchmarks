@@ -6,7 +6,6 @@
 #include <math.h>
 #include <stdlib.h>
 
-
 // Convenience function to create a 2D array of zeros
 double** zeros(int Nrows, int Ncols) {
 

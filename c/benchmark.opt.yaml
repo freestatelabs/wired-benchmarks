@@ -1,0 +1,64 @@
+--- !Analysis
+Pass:            loop-vectorize
+Name:            IfConvesionFail_ReadInstButNotLoad
+DebugLoc:        { File: benchmark.c, Line: 60, Column: 5 }
+Function:        main
+Args:
+  - String:          'loop not vectorized: '
+  - String:          'If-statement in the loop has a ''call'' instruction that may read from the memory. Here only load instruction is supported.'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+DebugLoc:        { File: benchmark.c, Line: 65, Column: 22 }
+Function:        main
+Args:
+  - String:          'loop not vectorized: '
+  - String:          Call instruction cannot be vectorized because the called function solve2 is a non-intrinsic function.
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeInstruction
+DebugLoc:        { File: benchmark.c, Line: 60, Column: 5 }
+Function:        main
+Args:
+  - String:          'loop not vectorized: '
+  - String:          ''''
+  - String:          call
+  - String:          ''' instruction may read from memory. Only load instruction is supported.'
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+DebugLoc:        { File: benchmark.c, Line: 60, Column: 5 }
+Function:        main
+Args:
+  - String:          loop not vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+DebugLoc:        { File: benchmark.c, Line: 50, Column: 9 }
+Function:        main.omp_outlined
+Args:
+  - String:          'loop not vectorized: '
+  - String:          Call instruction cannot be vectorized because the called function __kmpc_ordered is a non-intrinsic function.
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            RHSNotInvariant
+DebugLoc:        { File: benchmark.c, Line: 47, Column: 5 }
+Function:        main.omp_outlined
+Args:
+  - String:          'loop not vectorized: '
+  - String:          'It is not possible to determine the number of loop iterations '
+  - String:          because the RHS of the condition in the loop is not loop invariant.
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+DebugLoc:        { File: benchmark.c, Line: 47, Column: 5 }
+Function:        main.omp_outlined
+Args:
+  - String:          loop not vectorized
+...
